@@ -24,6 +24,17 @@ public class Restaurant {
         return this.openingTime.compareTo(getCurrentTime()) < 0 && this.closingTime.compareTo(getCurrentTime()) > 0;
     }
 
+    public int evaluatePriceForTheSelectedItems(String... items) {
+        int price = 0;
+        for (String item : items) {
+            Item selectedItem = findItemByName(item);
+            if (selectedItem == null) continue;
+
+            price += selectedItem.getPrice();
+        }
+        return price;
+    }
+
     public LocalTime getCurrentTime(){ return  LocalTime.now(); }
 
     public List<Item> getMenu() {
