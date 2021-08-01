@@ -66,4 +66,16 @@ class RestaurantTest {
         assertThrows(itemNotFoundException.class, () -> restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>Price Evaluation<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void adding_item_to_menu_should_show_the_price() {
+        Assertions.assertEquals(388, restaurant.evaluatePriceForTheSelectedItems("Sweet corn soup", "Vegetable lasagne"));
+    }
+
+    @Test
+    public void when_no_item_is_selected_price_should_be_zero() {
+        Assertions.assertEquals(0, restaurant.evaluatePriceForTheSelectedItems());
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<Price Evaluation>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
